@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="One True Book icon">
+  <title>One True Book</title>
+  <rect width="256" height="256" rx="58" fill="#003C2D"/>
+  <g transform="translate(-137.75 -77.00) scale(0.5000)">
+    <path d="M380 488 515 284 563 334Z" fill="#FFFFFF" />
+    <path d="M380 488 595 362 644 423Z" fill="#FFFFFF" />
+    <path d="M380 488 580 401 683 470 489 544Z" fill="#B39450" stroke="#B39450" stroke-width="8" stroke-linejoin="round"/>
+  </g>
+</svg>
