@@ -77,7 +77,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
                 Buy now — read tonight
               </Link>
             </div>
-            <p className="mt-4 text-sm text-ink-soft">30-day it-has-to-hit guarantee · Keep the files forever</p>
+            <p className="mt-4 text-sm text-ink-soft">Read Chapter 1 free · Keep your books forever</p>
           </div>
         </div>
       </section>

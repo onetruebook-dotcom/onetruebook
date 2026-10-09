@@ -21,8 +21,8 @@ export default async function ShopPage() {
       <p className="text-[11px] tracking-[0.28em] text-gold-deep uppercase">The One True Book library</p>
       <h1 className="font-serif mt-3 max-w-3xl text-5xl md:text-6xl">Choose a bottleneck. Or let the quiz choose for you.</h1>
       <p className="mt-5 max-w-2xl text-lg text-ink-soft">
-        Every title is a complete protocol, not a TED Talk in PDF clothing. Instant download. Read in
-        an evening. Use for 90 days.
+        Every title is a complete protocol, not a TED Talk in PDF clothing. Instant access. Start
+        tonight — the first shifts show within a week. Run it for 90 days.
       </p>
       <Link href="/quiz" className="mt-8 inline-flex rounded-full bg-ink px-6 py-3 text-cream">
         I want the quiz to decide

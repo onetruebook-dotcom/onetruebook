@@ -8,7 +8,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <Logo variant="dark" className="sm:h-12" />
           <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/75">
-            Short, surgical ebooks for the bottleneck you are actually in. Ninety seconds to a
+            Focused ebooks for the bottleneck you are actually in. Eight questions to a
             diagnosis. Instant access forever.
           </p>
           <p className="mt-4 text-[11px] tracking-[0.22em] text-gold uppercase">
@@ -28,8 +28,8 @@ export function Footer() {
         <div className="text-sm text-cream/80">
           <p className="mb-3 tracking-[0.16em] uppercase text-cream/50">Promise</p>
           <p className="leading-relaxed">
-            30-day “it has to hit” guarantee. If the book does not name your life, write us. We
-            make it right.
+            Read Chapter 1 free before you buy. If a book does not name your life, the quiz will
+            find the one that does.
           </p>
         </div>
       </div>

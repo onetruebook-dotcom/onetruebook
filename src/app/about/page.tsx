@@ -18,11 +18,11 @@ const faqs = [
   },
   {
     q: "How long are the books?",
-    a: "Roughly 130–180 pages of field-manual writing. An evening to read. A protocol to run for 10 to 90 days.",
+    a: "Roughly 215–285 pages of field-manual writing. A real read — and a protocol to run for 10 to 90 days, with changes that show up in your week.",
   },
   {
     q: "What if I pick wrong?",
-    a: "The 30-day it-has-to-hit guarantee. Write us. We will make it right — including pointing you to a better title.",
+    a: "Every book opens with a free first chapter, so you can feel it before you buy. If it does not name your life, retake the quiz — it will point you to the one that does.",
   },
   {
     q: "Can I buy all six?",

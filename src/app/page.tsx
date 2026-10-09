@@ -21,16 +21,16 @@ const steps = [
   },
   {
     n: "03",
-    title: "Read tonight. Use it this week.",
-    copy: "Short ebooks. Surgical protocols. Instant access on any device — forever.",
+    title: "Start tonight. Real change in a week.",
+    copy: "Focused protocols that apply fast to your daily life and habits. Instant access on any device — forever.",
   },
 ];
 
 const stats = [
   ["14,200+", "readers diagnosed"],
-  ["90 sec", "to a clear next book"],
+  ["8 questions", "to the right book"],
   ["4.9/5", "average reader rating"],
-  ["30 days", "it-has-to-hit guarantee"],
+  ["1 week", "to first real change"],
 ];
 
 export default async function HomePage() {
@@ -52,8 +52,8 @@ export default async function HomePage() {
               Stop buying books you never finish.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/80">
-              Take the free 90-second quiz. We’ll diagnose the real bottleneck in your life —
-              then hand you the one short ebook built to fix it. Not a pile. Not a course. One precise
+              Take the free quiz. We’ll diagnose the real bottleneck in your life —
+              then hand you the one ebook built to fix it. Not a pile. Not a course. One precise
               next chapter.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

@@ -30,7 +30,7 @@ export default async function OpenGraphImage() {
             Find the book that actually fits you.
           </div>
           <div style={{ color: "#003C2D", fontSize: 24, marginTop: 20 }}>
-            Take the free 90-second quiz.
+            Take the free quiz.
           </div>
         </div>
       </div>

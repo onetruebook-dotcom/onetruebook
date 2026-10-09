@@ -66,7 +66,7 @@ export default function BrandPage() {
           <ul className="mt-4 grid gap-2 text-ink-soft">
             <li>— Display name: <strong className="text-ink">One True Book</strong></li>
             <li>— Handle: <strong className="text-ink">@onetruebook</strong></li>
-            <li>— Bio: 90-second quiz. One book that actually fits.</li>
+            <li>— Bio: Free quiz. One book that actually fits.</li>
             <li>— Website: https://onetruebook.com</li>
           </ul>
         </div>

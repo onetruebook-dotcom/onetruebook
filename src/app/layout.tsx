@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s · One True Book",
   },
   description:
-    "A 90-second quiz diagnoses the real bottleneck in your life, then hands you the one true book built to fix it. Focus, money, habits, confidence, sleep, career.",
+    "A free quiz diagnoses the real bottleneck in your life, then hands you the one true book built to fix it. Focus, money, habits, confidence, sleep, career.",
   icons: {
     icon: [{ url: "/icon.jpg", type: "image/jpeg" }],
     apple: [{ url: "/apple-touch-icon.png" }],

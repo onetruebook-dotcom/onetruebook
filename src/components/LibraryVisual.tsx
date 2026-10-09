@@ -27,7 +27,7 @@ export function LibraryVisual({ className = "" }: LibraryVisualProps) {
         <p className="font-serif mt-6 text-2xl leading-tight text-cream sm:text-3xl">
           Which one was written for you?
         </p>
-        <p className="mt-2 text-sm text-cream/75">Eight honest questions. Ninety seconds.</p>
+        <p className="mt-2 text-sm text-cream/75">Eight honest questions. One clear answer.</p>
         <Link href="/quiz" className="mt-4 inline-flex rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink">
           Take the free quiz
         </Link>
