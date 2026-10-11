@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { AnimatedStats } from "@/components/AnimatedStats";
 import { BookCard } from "@/components/BookCard";
-import { BookCover } from "@/components/BookCover";
+import { BookCarousel } from "@/components/BookCarousel";
 import { LibraryVisual } from "@/components/LibraryVisual";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { catalog, singleBooks } from "@/lib/catalog";
 import { formatMoney } from "@/lib/format";
+import { additionalReaderStories, homepageStats } from "@/lib/homepage-content";
 import { ensureSeeded } from "@/lib/seed";
 
 export const dynamic = "force-dynamic";
@@ -26,17 +29,16 @@ const steps = [
   },
 ];
 
-const stats = [
-  ["14,200+", "readers diagnosed"],
-  ["8 questions", "to the right book"],
-  ["4.9/5", "average reader rating"],
-  ["1 week", "to first real change"],
-];
-
 export default async function HomePage() {
   await ensureSeeded();
   const featured = singleBooks.slice(0, 3);
   const bundle = catalog.find((book) => book.isBundle === 1)!;
+  // Only public book details cross the client boundary, never chapter content.
+  const carouselBooks = singleBooks.map(({ slug, title, author, category, coverImage, accent }) => ({
+    slug, title, author, category, coverImage, accent,
+  }));
+  // Nine homepage reviews of similar length so every card fills evenly.
+  const stories = additionalReaderStories;
 
   return (
     <main>
@@ -68,50 +70,11 @@ export default async function HomePage() {
               8 questions. No fluff. A diagnosis you can act on tonight.
             </p>
           </div>
-          <div className="hidden justify-center md:flex">
-            <div className="relative">
-              <div className="absolute -left-16 top-10 rotate-[-12deg] opacity-80">
-                <BookCover
-                  title="Money Unlocked"
-                  author="Jordan Hale"
-                  image="/covers/money.jpg"
-                  accent="#1e4d3a"
-                  size="sm"
-                />
-              </div>
-              <div className="relative z-10">
-                <BookCover
-                  title="The Focus Formula"
-                  author="Maya Ellison"
-                  image="/covers/focus.jpg"
-                  accent="#1c3a5f"
-                  size="lg"
-                />
-              </div>
-              <div className="absolute -right-10 bottom-6 rotate-[10deg]">
-                <BookCover
-                  title="Quiet Confidence"
-                  author="Lena Ortiz"
-                  image="/covers/confidence.jpg"
-                  accent="#7a4450"
-                  size="sm"
-                />
-              </div>
-            </div>
-          </div>
+          <BookCarousel books={carouselBooks} />
         </div>
       </section>
 
-      <section className="border-y border-ink/10 bg-paper">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-5 py-10 md:grid-cols-4">
-          {stats.map(([value, label]) => (
-            <div key={label}>
-              <p className="font-serif text-3xl">{value}</p>
-              <p className="mt-1 text-sm text-ink-soft">{label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <AnimatedStats stats={homepageStats} />
 
       <section className="mx-auto max-w-6xl px-5 py-20">
         <p className="text-[11px] tracking-[0.28em] text-gold-deep uppercase">How it works</p>
@@ -127,10 +90,7 @@ export default async function HomePage() {
             </article>
           ))}
         </div>
-        <Link
-          href="/quiz"
-          className="mt-10 inline-flex rounded-full bg-ink px-7 py-3.5 text-cream"
-        >
+        <Link href="/quiz" className="mt-10 inline-flex rounded-full bg-ink px-7 py-3.5 text-cream">
           Diagnose my bottleneck
         </Link>
       </section>
@@ -161,14 +121,10 @@ export default async function HomePage() {
             <p className="text-[11px] tracking-[0.28em] text-gold-deep uppercase">The library</p>
             <h2 className="font-serif mt-3 text-4xl">Six bottlenecks. Six books.</h2>
           </div>
-          <Link href="/shop" className="hidden text-sm underline md:inline">
-            See all titles
-          </Link>
+          <Link href="/shop" className="hidden text-sm underline md:inline">See all titles</Link>
         </div>
         <div className="mt-12 grid gap-10 md:grid-cols-3">
-          {featured.map((book) => (
-            <BookCard key={book.slug} book={book} />
-          ))}
+          {featured.map((book) => <BookCard key={book.slug} book={book} />)}
         </div>
       </section>
 
@@ -181,14 +137,9 @@ export default async function HomePage() {
               <p className="mt-4 max-w-lg text-cream/75">{bundle.description}</p>
               <p className="mt-6 font-serif text-4xl">
                 {formatMoney(bundle.priceCents)}
-                <span className="ml-3 text-xl text-cream/40 line-through">
-                  {formatMoney(bundle.originalPriceCents)}
-                </span>
+                <span className="ml-3 text-xl text-cream/40 line-through">{formatMoney(bundle.originalPriceCents)}</span>
               </p>
-              <Link
-                href={`/books/${bundle.slug}`}
-                className="mt-8 inline-flex rounded-full bg-gold px-7 py-3.5 text-ink"
-              >
+              <Link href={`/books/${bundle.slug}`} className="mt-8 inline-flex rounded-full bg-gold px-7 py-3.5 text-ink">
                 Unlock the full library
               </Link>
             </div>
@@ -199,19 +150,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <h2 className="font-serif text-4xl">Readers who stopped guessing</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {singleBooks.slice(0, 3).map((book) => (
-            <blockquote key={book.slug} className="rounded-3xl bg-paper p-8">
-              <p className="font-serif text-2xl leading-snug">“{book.testimonials[0].quote}”</p>
-              <footer className="mt-6 text-sm text-ink-soft">
-                {book.testimonials[0].name} · {book.testimonials[0].role}
-              </footer>
-            </blockquote>
-          ))}
-        </div>
-      </section>
+      <TestimonialsCarousel stories={stories} />
 
       <section className="px-5 pb-20">
         <div className="mx-auto max-w-4xl rounded-[2rem] bg-cream-dark px-8 py-14 text-center">
