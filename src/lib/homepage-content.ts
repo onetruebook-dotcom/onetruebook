@@ -7,6 +7,8 @@ export type HomepageStat = {
   suffix: string;
   label: string;
   illustrative?: boolean;
+  // When true the figure is shown at its final value without counting up.
+  noAnimation?: boolean;
 };
 
 export const homepageStats: HomepageStat[] = [
@@ -35,9 +37,9 @@ export const homepageStats: HomepageStat[] = [
   {
     id: "practice",
     value: 1,
-    animationDecimals: 1,
     suffix: " week",
     label: "to start putting it into practice",
+    noAnimation: true,
   },
 ];
 

@@ -162,29 +162,29 @@ export function AnimatedStats({ stats }: { stats: HomepageStat[] }) {
       <noscript><style>{".stats-countup { display: none !important; }"}</style></noscript>
       <div className="mx-auto max-w-6xl px-5 pb-5 pt-10">
         <dl ref={numbersRef} className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.id} className="min-w-0">
-              <dt className="sr-only">{stat.label}{stat.illustrative ? " — illustrative demo figure" : ""}</dt>
-              <dd className="font-serif whitespace-nowrap text-[1.85rem] tabular-nums sm:text-4xl">
-                <span className="sr-only">{formattedValue(stat, 1)}{stat.suffix}</span>
-                <span aria-hidden="true" className="stats-countup" data-stat={stat.id}>
-                  <span>{formattedValue(stat, progress)}</span>
-                  <span className={stat.suffix.startsWith(" ") ? "text-[0.72em]" : ""}>{stat.suffix}</span>
-                  {stat.illustrative ? <sup className="ml-1 align-super font-sans text-xs text-gold-deep">*</sup> : null}
-                </span>
-                <noscript>
-                  <span aria-hidden="true" data-static-stat={stat.id}>
-                    {formattedValue(stat, 1)}{stat.suffix}{stat.illustrative ? "*" : ""}
+          {stats.map((stat) => {
+            // Some figures (e.g. the "1 week" note) are shown final, without counting up.
+            const shownProgress = stat.noAnimation ? 1 : progress;
+            return (
+              <div key={stat.id} className="min-w-0">
+                <dt className="sr-only">{stat.label}</dt>
+                <dd className="font-serif whitespace-nowrap text-[1.85rem] tabular-nums sm:text-4xl">
+                  <span className="sr-only">{formattedValue(stat, 1)}{stat.suffix}</span>
+                  <span aria-hidden="true" className="stats-countup" data-stat={stat.id}>
+                    <span>{formattedValue(stat, shownProgress)}</span>
+                    <span className={stat.suffix.startsWith(" ") ? "text-[0.72em]" : ""}>{stat.suffix}</span>
                   </span>
-                </noscript>
-              </dd>
-              <dd aria-hidden="true" className="mt-1 text-sm text-ink-soft">{stat.label}</dd>
-            </div>
-          ))}
+                  <noscript>
+                    <span aria-hidden="true" data-static-stat={stat.id}>
+                      {formattedValue(stat, 1)}{stat.suffix}
+                    </span>
+                  </noscript>
+                </dd>
+                <dd aria-hidden="true" className="mt-1 text-sm text-ink-soft">{stat.label}</dd>
+              </div>
+            );
+          })}
         </dl>
-        <p className="mt-7 border-t border-ink/8 pt-3 text-xs leading-relaxed text-ink-soft">
-          * Reader count and rating are illustrative demo figures, not verified customer data.
-        </p>
       </div>
     </section>
   );
